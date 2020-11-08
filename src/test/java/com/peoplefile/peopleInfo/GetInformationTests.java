@@ -19,11 +19,18 @@ public class GetInformationTests
     {
         PeopleInformationRequest request = new PeopleInformationRequest();
         request.setName("Jesus Alberto Castellanos Santiago");
-        request.setDateOfBirth("10-07-1991");
+        request.setDateOfBirth("08-11-1991");
         System.out.println("El request tiene: " + request.toString());
         PeopleInformationResponse response = service.getInfoPeople(request);
         System.out.println("El response tiene: " + response.toString());
         assertNotNull(response);
         
+    }
+    
+    @Test
+    public void getPoemsFromApi()
+    {
+        String peom = service.getPoem();
+        assertNotNull(peom);
     }
 }
