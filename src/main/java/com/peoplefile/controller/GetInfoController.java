@@ -13,9 +13,18 @@ public class GetInfoController
    @PostMapping("/information")
    public ResponseEntity<PeopleInformationResponse> getPeopleInfo()
    {
-       PeopleInformationResponse response = new PeopleInformationResponse();
-       ResponseEntity<PeopleInformationResponse> responseEntity = new ResponseEntity<>(response, HttpStatus.OK);
-       return responseEntity;
+        System.out.println("Ingreso al metodo correctametne");
+        try
+        {
+             PeopleInformationResponse response = new PeopleInformationResponse();
+             ResponseEntity<PeopleInformationResponse> responseEntity = new ResponseEntity<>(response, HttpStatus.OK);
+             return responseEntity; 
+        }
+        catch(Exception e)
+        {
+             ResponseEntity<PeopleInformationResponse> responseEntity = new ResponseEntity<>(new PeopleInformationResponse(), HttpStatus.BAD_REQUEST);
+             return responseEntity;
+        }
 
    }
 }
