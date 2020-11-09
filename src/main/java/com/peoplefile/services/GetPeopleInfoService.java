@@ -48,13 +48,22 @@ public class GetPeopleInfoService {
             if(totalDays == 365)
             {
                 System.out.println("Cumpleanos");
-                Integer age = birthdayReq.getYear() - today.getYear();
+                Integer age = today.getYear() - birthdayReq.getYear();
                 response.setAge(age.toString());
                 response.setPoem(this.getPoem());
             }
             else
             {   
-                Integer age = (today.getYear()-1) - birthdayReq.getYear();
+                Integer age = 0;
+                if(today.getMonthValue() > birthdayReq.getMonthValue())
+                {
+                     age = (today.getYear()) - birthdayReq.getYear();
+                }
+                else
+                {
+                    age = (today.getYear()-1) - birthdayReq.getYear();
+                }
+                
                 response.setAge(age.toString());
             }
 
